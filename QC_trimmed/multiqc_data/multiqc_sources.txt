@@ -1,0 +1,10 @@
+Module	Section	Sample Name	Source
+FastQC	all_sections	SRR12885579	/home/abdulaziz-khaled/Bulk_RNAseq_Project/QC_trimmed/SRR12885579.trim_fastqc.zip
+FastQC	all_sections	SRR12885580	/home/abdulaziz-khaled/Bulk_RNAseq_Project/QC_trimmed/SRR12885580.trim_fastqc.zip
+FastQC	all_sections	SRR12885581	/home/abdulaziz-khaled/Bulk_RNAseq_Project/QC_trimmed/SRR12885581.trim_fastqc.zip
+FastQC	all_sections	SRR12885679_1	/home/abdulaziz-khaled/Bulk_RNAseq_Project/QC_trimmed/SRR12885679_1.trim_fastqc.zip
+FastQC	all_sections	SRR12885679_2	/home/abdulaziz-khaled/Bulk_RNAseq_Project/QC_trimmed/SRR12885679_2.trim_fastqc.zip
+FastQC	all_sections	SRR12885688_1	/home/abdulaziz-khaled/Bulk_RNAseq_Project/QC_trimmed/SRR12885688_1.trim_fastqc.zip
+FastQC	all_sections	SRR12885688_2	/home/abdulaziz-khaled/Bulk_RNAseq_Project/QC_trimmed/SRR12885688_2.trim_fastqc.zip
+FastQC	all_sections	SRR12885709_1	/home/abdulaziz-khaled/Bulk_RNAseq_Project/QC_trimmed/SRR12885709_1.trim_fastqc.zip
+FastQC	all_sections	SRR12885709_2	/home/abdulaziz-khaled/Bulk_RNAseq_Project/QC_trimmed/SRR12885709_2.trim_fastqc.zip
