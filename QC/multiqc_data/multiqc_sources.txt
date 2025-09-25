@@ -1,0 +1,10 @@
+Module	Section	Sample Name	Source
+FastQC	all_sections	SRR12885709_2	/home/abdulaziz-khaled/Bulk_RNAseq_Project/QC/SRR12885709_2_fastqc.zip
+FastQC	all_sections	SRR12885709_1	/home/abdulaziz-khaled/Bulk_RNAseq_Project/QC/SRR12885709_1_fastqc.zip
+FastQC	all_sections	SRR12885581	/home/abdulaziz-khaled/Bulk_RNAseq_Project/QC/SRR12885581_fastqc.zip
+FastQC	all_sections	SRR12885688_1	/home/abdulaziz-khaled/Bulk_RNAseq_Project/QC/SRR12885688_1_fastqc.zip
+FastQC	all_sections	SRR12885679_1	/home/abdulaziz-khaled/Bulk_RNAseq_Project/QC/SRR12885679_1_fastqc.zip
+FastQC	all_sections	SRR12885679_2	/home/abdulaziz-khaled/Bulk_RNAseq_Project/QC/SRR12885679_2_fastqc.zip
+FastQC	all_sections	SRR12885580	/home/abdulaziz-khaled/Bulk_RNAseq_Project/QC/SRR12885580_fastqc.zip
+FastQC	all_sections	SRR12885579	/home/abdulaziz-khaled/Bulk_RNAseq_Project/QC/SRR12885579_fastqc.zip
+FastQC	all_sections	SRR12885688_2	/home/abdulaziz-khaled/Bulk_RNAseq_Project/QC/SRR12885688_2_fastqc.zip
