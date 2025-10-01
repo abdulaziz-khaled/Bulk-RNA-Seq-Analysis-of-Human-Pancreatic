@@ -22,35 +22,52 @@ The overarching aim of this analysis is: To identify differentially expressed ge
 This section outlines the complete bioinformatics pipeline used for the RNA-seq analysis of the GSE159984 dataset, covering the process from raw data retrieval to functional biological interpretation.
 
 **(1) 📥 Data Retrieval and Preparation**
+
 The workflow begins by acquiring and preparing the data for primary analysis:
+
 • **Dataset Source**: GSE159984 (GEO)
+
 • **Action**: Downloading the raw FASTQ files for the Control (paired-end) and Stress (single-end) samples.
 
 **(2) 🛡️ Quality Control (QC) & Trimming**
+
 Data integrity is crucial. We enforce strict quality standards through these two steps:
+
 1. **Initial Quality Control (QC)**
 2. **Sequence Quality Trimming (Read Trimming)**
+
 • **Goal**: Removing low-quality bases and adapter sequences.
+
 • **Verification**: Running QC again on the trimmed reads to confirm high quality.
 
 **(3) 🎯 Indexing & Read Alignment (Mapping)**
+
 Clean reads are then mapped to the reference genome:
+
 • **Indexing**: Creating a searchable index for the reference human genome (hg38) (e.g., using STAR or HISAT2).
+
 • **Read Alignment**: Mapping (aligning) the high-quality reads against the indexed genome to determine their genomic origin.
 
 **(4) 🔢 Quantification (Gene Expression Counts)**
+
 Converting aligned reads into quantifiable expression levels:
+
 • **Goal**: Counting the number of reads that map to each specific gene to obtain Raw Counts.
+
 • **Output**: A count matrix detailing the expression level for every gene across all samples.
 
 **(5) 📈 Differential Expression Analysis (DEGs)**
+
 The core statistical analysis to find significant changes:
+
 1. **Normalization**: Adjusting raw counts for sequencing depth biases.
 2. **Dimension Reduction**: Performing PCA (Principal Component Analysis) to visualize sample clustering and overall variability.
 3. **DEGs Analysis**: Identifying Differentially Expressed Genes (DEGs) between the Stress and Control groups using established packages (e.g., DESeq2).
 
 **(6) 📑 Functional Enhancement & Biological Interpretation**
+
 The final step to link statistical results back to biological meaning:
+
 **Goal**: Understanding the biological pathways and functions associated with the identified DEGs.
 
 ## 🛠️ Tools and Software Used
@@ -73,5 +90,5 @@ The table below details the specific tools and R packages utilized in each uniqu
 
 
 **(3) Read Trimming**
-https://github.com/abdulaziz-khaled/Bulk-RNA-Seq-Analysis-of-Human-Pancreatic/blob/41f2f955894c6471fd3aca812b47374e1c08e3da/Screenshot%20from%202025-09-25%2021-03-56.png
+[Screenshot](https://github.com/abdulaziz-khaled/Bulk-RNA-Seq-Analysis-of-Human-Pancreatic/blob/41f2f955894c6471fd3aca812b47374e1c08e3da/Screenshot%20from%202025-09-25%2021-03-56.png)
 
