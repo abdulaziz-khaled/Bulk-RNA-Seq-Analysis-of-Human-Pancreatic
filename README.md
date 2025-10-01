@@ -86,7 +86,7 @@ The table below details the specific tools and R packages utilized in each uniqu
 
 # Result
 **(1) Data Retrival** 
-[Screenshot](Screenshot from 2025-09-24 19-00-53.png)
+![Screenshot](Screenshot from 2025-09-24 19-00-53.png)
 
 
 **(3) Read Trimming**
