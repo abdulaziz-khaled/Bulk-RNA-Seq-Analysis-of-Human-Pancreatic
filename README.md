@@ -12,7 +12,7 @@ The overarching aim of this analysis is: To identify differentially expressed ge
 | Field | Details |
 | :--- | :--- |
 | **Dataset Source** | **GSE159984 (GEO)** |
-| **Sample Groups** | **3 Control** vs **3 Stress** (palmitate/glucose-treated) |
+| **Sample Groups** | **3 Control** vs **3 Stress**  |
 | **Control Group Accessions** | SRR12885688, SRR12885679, SRR12885709 |
 | **Control Read Type** | Paired-end (**6 FASTQ files**) |
 | **Stress Group Accessions** | SRR12885579, SRR12885580, SRR12885581 |
