@@ -52,3 +52,17 @@ The core statistical analysis to find significant changes:
 **(6) ✨ Functional Enhancement & Biological Interpretation**
 The final step to link statistical results back to biological meaning:
 **Goal**: Understanding the biological pathways and functions associated with the identified DEGs.
+
+## 🛠️ Tools and Software Used
+
+The table below details the specific tools and R packages utilized in each unique stage of the bioinformatics pipeline.
+
+| Workflow Stage | Tools / R Packages | Primary Functions |
+| :--- | :--- | :--- |
+| **Data Retrieval** | **SRA-toolkit** | Downloading raw **FASTQ** files from the SRA database. |
+| **Quality Control & Trimming** | **FastQC**, **MultiQC**, **Trimmomatic** | Assessing initial read quality, summarizing reports, and removing low-quality reads/adapters. |
+| **Alignment (Mapping)** | **HISAT2** | Aligning quality-filtered reads to the human reference genome (**hg38**). |
+| **Quantification** | **FeatureCounts** | Counting the number of reads mapped to each gene to generate **Raw Counts**. |
+| **Differential Expression** | **DESeq2** | Performing normalization and statistical analysis to identify **DEGs**. |
+| **Functional Enrichment** | **clusterProfiler**, **org.Hs.eg.db**, **enrichplot** | Performing and visualizing **GO** and **KEGG** enrichment analysis using human annotation data. |
+| **Data Visualization** | **ggplot2**, **Pheatmap** | Creating high-quality plots (Volcano, Box plots) and visually appealing **Heatmaps**. |
