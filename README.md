@@ -91,7 +91,14 @@ The table below details the specific tools and R packages utilized in each uniqu
 **(2) QC (Before Read Trimming)**
 1. [SRR12885579_fastqc.html](https://abdulaziz-khaled.github.io/Bulk-RNA-Seq-Analysis-of-Human-Pancreatic/QC/SRR12885579_fastqc.html)
 2. [SRR12885580_fastqc.html](https://abdulaziz-khaled.github.io/Bulk-RNA-Seq-Analysis-of-Human-Pancreatic/QC/SRR12885580_fastqc.html)
-
+3. [SRR12885581_fastqc.html](https://abdulaziz-khaled.github.io/Bulk-RNA-Seq-Analysis-of-Human-Pancreatic/QC/SRR12885581_fastqc.html)
+4. [SRR12885679_1_fastqc.html](https://abdulaziz-khaled.github.io/Bulk-RNA-Seq-Analysis-of-Human-Pancreatic/QC/SRR12885679_1_fastqc.html)
+5. [SRR12885679_2_fastqc.html](https://abdulaziz-khaled.github.io/Bulk-RNA-Seq-Analysis-of-Human-Pancreatic/QC/SRR12885679_2_fastqc.html)
+6. [SRR12885688_1_fastqc.html](https://abdulaziz-khaled.github.io/Bulk-RNA-Seq-Analysis-of-Human-Pancreatic/QC/SRR12885688_1_fastqc.html)
+7. [SRR12885688_2_fastqc.html](https://abdulaziz-khaled.github.io/Bulk-RNA-Seq-Analysis-of-Human-Pancreatic/QC/SRR12885688_2_fastqc.html)
+8. [SRR12885709_1_fastqc.html](https://abdulaziz-khaled.github.io/Bulk-RNA-Seq-Analysis-of-Human-Pancreatic/QC/SRR12885709_1_fastqc.html)
+9. [SRR12885709_2_fastqc.html](https://abdulaziz-khaled.github.io/Bulk-RNA-Seq-Analysis-of-Human-Pancreatic/QC/SRR12885709_2_fastqc.html)
+10. [multiqc_report.html](https://abdulaziz-khaled.github.io/Bulk-RNA-Seq-Analysis-of-Human-Pancreatic/QC/multiqc_report.html)
 
 **(3) Read Trimming**
 [Screenshot](https://github.com/abdulaziz-khaled/Bulk-RNA-Seq-Analysis-of-Human-Pancreatic/blob/41f2f955894c6471fd3aca812b47374e1c08e3da/Screenshot%20from%202025-09-25%2021-03-56.png)
