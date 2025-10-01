@@ -7,3 +7,13 @@ Human pancreatic β-cells play a central role in maintaining glucose homeostasis
 The dataset analyzed in this project, GSE159984, investigates the transcriptomic response of human β-cells under metabolic stress compared to untreated controls. By applying Bulk RNA-seq analysis, it becomes possible to identify differentially expressed genes (DEGs) and uncover biological pathways that may underlie stress-induced β-cell dysfunction.
 The overarching aim of this analysis is: To identify differentially expressed genes (DEGs) and enriched pathways in human pancreatic β-cells exposed to metabolic stress compared to control conditions.
 
+## 📚 Data Source and Sample Information
+
+| Field | Details |
+| :--- | :--- |
+| **Dataset Source** | **GSE159984 (GEO)** |
+| **Sample Groups** | **3 Control** vs **3 Stress** (palmitate/glucose-treated) |
+| **Control Group Accessions** | SRR12885688, SRR12885679, SRR12885709 |
+| **Control Read Type** | Paired-end (**6 FASTQ files**) |
+| **Stress Group Accessions** | SRR12885579, SRR12885580, SRR12885581 |
+| **Stress Read Type** | Single-end (**3 FASTQ files**) |
