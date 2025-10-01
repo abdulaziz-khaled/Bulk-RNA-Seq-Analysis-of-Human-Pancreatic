@@ -49,7 +49,7 @@ The core statistical analysis to find significant changes:
 2. **Dimension Reduction**: Performing PCA (Principal Component Analysis) to visualize sample clustering and overall variability.
 3. **DEGs Analysis**: Identifying Differentially Expressed Genes (DEGs) between the Stress and Control groups using established packages (e.g., DESeq2).
 
-**(6) ✨ Functional Enhancement & Biological Interpretation**
+**(6) 📑 Functional Enhancement & Biological Interpretation**
 The final step to link statistical results back to biological meaning:
 **Goal**: Understanding the biological pathways and functions associated with the identified DEGs.
 
