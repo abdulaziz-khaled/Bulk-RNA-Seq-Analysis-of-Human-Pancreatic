@@ -70,4 +70,8 @@ The table below details the specific tools and R packages utilized in each uniqu
 # Result
 **(1) Data Retrival** 
 [Screenshot](https://github.com/abdulaziz-khaled/Bulk-RNA-Seq-Analysis-of-Human-Pancreatic/blob/9e90fe50ddb3a799b9d9d65f5c7be729a599b940/Screenshot%20from%202025-09-24%2019-00-53.png)
-**(3) Read Trimming** 
+
+
+**(3) Read Trimming**
+https://github.com/abdulaziz-khaled/Bulk-RNA-Seq-Analysis-of-Human-Pancreatic/blob/41f2f955894c6471fd3aca812b47374e1c08e3da/Screenshot%20from%202025-09-25%2021-03-56.png
+
