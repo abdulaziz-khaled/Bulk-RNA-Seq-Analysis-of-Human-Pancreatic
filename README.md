@@ -23,7 +23,6 @@ This section outlines the complete bioinformatics pipeline used for the RNA-seq 
 
 **(1) 📥 Data Retrieval and Preparation**
 The workflow begins by acquiring and preparing the data for primary analysis:
-
 • **Dataset Source**: GSE159984 (GEO)
 • **Action**: Downloading the raw FASTQ files for the Control (paired-end) and Stress (single-end) samples.
 
@@ -50,6 +49,6 @@ The core statistical analysis to find significant changes:
 2. **Dimension Reduction**: Performing PCA (Principal Component Analysis) to visualize sample clustering and overall variability.
 3. **DEGs Analysis**: Identifying Differentially Expressed Genes (DEGs) between the Stress and Control groups using established packages (e.g., DESeq2).
 
-(6) ✨ **Functional Enhancement & Biological Interpretation**
+**(6) ✨ Functional Enhancement & Biological Interpretation**
 The final step to link statistical results back to biological meaning:
 **Goal**: Understanding the biological pathways and functions associated with the identified DEGs.
