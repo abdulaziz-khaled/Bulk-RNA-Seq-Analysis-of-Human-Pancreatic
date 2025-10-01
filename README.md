@@ -84,7 +84,7 @@ The table below details the specific tools and R packages utilized in each uniqu
 | **Functional Enrichment** | **clusterProfiler**, **org.Hs.eg.db**, **enrichplot** | Performing and visualizing **GO** and **KEGG** enrichment analysis using human annotation data. |
 | **Data Visualization** | **ggplot2**, **Pheatmap** | Creating high-quality plots (Volcano, Box plots) and visually appealing **Heatmaps**. |
 
-# Result
+# 📃 Results
 **(1) Data Retrival** 
 [Screenshot](https://github.com/abdulaziz-khaled/Bulk-RNA-Seq-Analysis-of-Human-Pancreatic/blob/1a8afe130a5905bd35699d3f3e24b5832b0a2557/Screenshot%20from%202025-09-24%2019-00-53.png)
 
