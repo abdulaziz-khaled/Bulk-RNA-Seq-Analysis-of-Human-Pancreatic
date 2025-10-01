@@ -66,3 +66,7 @@ The table below details the specific tools and R packages utilized in each uniqu
 | **Differential Expression** | **DESeq2** | Performing normalization and statistical analysis to identify **DEGs**. |
 | **Functional Enrichment** | **clusterProfiler**, **org.Hs.eg.db**, **enrichplot** | Performing and visualizing **GO** and **KEGG** enrichment analysis using human annotation data. |
 | **Data Visualization** | **ggplot2**, **Pheatmap** | Creating high-quality plots (Volcano, Box plots) and visually appealing **Heatmaps**. |
+
+# Result
+**(1) Data Retrival** 
+Screenshot from 2025-09-24 19-00-53.png
