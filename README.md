@@ -151,7 +151,7 @@ The table below details the specific tools, their versions, and R packages utili
 
 **(8) Functional Enhancement**
 - [GO.csv](https://github.com/abdulaziz-khaled/Bulk-RNA-Seq-Analysis-of-Human-Pancreatic/blob/main/functional/GO_BP_top50_DEGs.csv)
-- [KEGG.csv](
+- [KEGG.csv](https://github.com/abdulaziz-khaled/Bulk-RNA-Seq-Analysis-of-Human-Pancreatic/blob/main/functional/KEGG_top50_DEGs.csv)
 
 
 ## 💻 Analysis Execution: Code Snippets
