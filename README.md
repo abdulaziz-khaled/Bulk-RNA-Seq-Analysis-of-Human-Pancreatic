@@ -159,7 +159,7 @@ fasterq-dump SRR12885581
 
 ### 2. 🛡️ Quality Control (QC) - Initial Check
 
-This step performs an initial quality assessment on the raw FASTQ files using **FastQC** and generates a summarized report with **MultiQC**.
+This step performs an initial quality assessment on the raw FASTQ files using `FastQC` and generates a summarized report with `MultiQC`.
 
 ```bash
 # Ensure we are in the raw_data directory where FASTQ files are located
