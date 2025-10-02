@@ -225,3 +225,58 @@ fastqc *.trim.fastq -o ../qc_trimmed/ -t 4
 # Aggregate all FastQC reports into a single HTML report
 multiqc ../qc_trimmed/ -o ../qc_trimmed/
 ```
+### 5. 🧬 Indexing and Alignment
+
+This step prepares the reference genome for alignment and performs read alignment using `HISAT2`. Both paired-end and single-end reads are aligned, and BAM files are sorted and indexed. Finally, QC statistics are generated with `samtools flagstat`.
+
+```bash
+# Create directories for genome index and alignment outputs
+mkdir -p ~/Bulk_RNAseq_Project/genome_index/hisat2_index
+mkdir -p ~/Bulk_RNAseq_Project/alignment
+
+# Download reference genome and annotation
+cd ~/Bulk_RNAseq_Project/genome_index
+wget -c https://ftp.ensembl.org/pub/release-109/fasta/homo_sapiens/dna/Homo_sapiens.GRCh38.dna.primary_assembly.fa.gz
+wget -c https://ftp.ensembl.org/pub/release-109/gtf/homo_sapiens/Homo_sapiens.GRCh38.109.gtf.gz
+
+# Unzip downloaded files
+cd ~/Bulk_RNAseq_Project/genome_index && gunzip -v *.gz && ls -lh
+
+# Build HISAT2 index
+hisat2-build -p 4 ~/Bulk_RNAseq_Project/genome_index/Homo_sapiens.GRCh38.dna.primary_assembly.fa ~/Bulk_RNAseq_Project/genome_index/hisat2_index
+
+# -------------------------------
+# Paired-end reads alignment
+for f in ~/Bulk_RNAseq_Project/trimmed/*_1.trim.fastq; do
+  base=$(basename "$f" _1.trim.fastq)
+  echo "=== $base (paired) ==="
+  hisat2 -p 4 -x ~/Bulk_RNAseq_Project/genome_index/hisat2_index \
+    -1 ~/Bulk_RNAseq_Project/trimmed/${base}_1.trim.fastq \
+    -2 ~/Bulk_RNAseq_Project/trimmed/${base}_2.trim.fastq 2> ~/Bulk_RNAseq_Project/alignment/${base}.hisat2.log \
+    | samtools view -@ 4 -bS - \
+    | samtools sort -@ 2 -o ~/Bulk_RNAseq_Project/alignment/${base}.sorted.bam
+  samtools index ~/Bulk_RNAseq_Project/alignment/${base}.sorted.bam
+done
+
+# -------------------------------
+# Single-end reads alignment
+for f in ~/Bulk_RNAseq_Project/trimmed/*trim.fastq; do
+  [[ "$f" == *"_1.trim.fastq" || "$f" == *"_2.trim.fastq" ]] && continue
+  base=$(basename "$f" .trim.fastq)
+  echo "=== $base (single) ==="
+  hisat2 -p 4 -x ~/Bulk_RNAseq_Project/genome_index/hisat2_index -U "$f" 2> ~/Bulk_RNAseq_Project/alignment/${base}.hisat2.log \
+    | samtools view -@ 4 -bS - \
+    | samtools sort -@ 2 -o ~/Bulk_RNAseq_Project/alignment/${base}.sorted.bam
+  samtools index ~/Bulk_RNAseq_Project/alignment/${base}.sorted.bam
+done
+
+# -------------------------------
+# Alignment QC
+for f in ~/Bulk_RNAseq_Project/alignment/*.sorted.bam; do
+  base=$(basename "$f" .sorted.bam)
+  echo "=== $base ==="
+  samtools index "$f"
+  samtools flagstat "$f" > ~/Bulk_RNAseq_Project/alignment/${base}.flagstat.txt
+  cat ~/Bulk_RNAseq_Project/alignment/${base}.flagstat.txt
+done
+```
