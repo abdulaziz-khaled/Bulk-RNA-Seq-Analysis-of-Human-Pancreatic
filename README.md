@@ -129,6 +129,8 @@ The table below details the specific tools, their versions, and R packages utili
 9. [SRR12885709_2.trim_fastqc.html](https://abdulaziz-khaled.github.io/Bulk-RNA-Seq-Analysis-of-Human-Pancreatic/QC_trimmed/SRR12885709_2.trim_fastqc.html)
 10. [multiqc_report.html](https://abdulaziz-khaled.github.io/Bulk-RNA-Seq-Analysis-of-Human-Pancreatic/QC_trimmed/multiqc_report.html)
 
+**(5) Indexing and Alignment**
+- [Screenshot](
 
 
 ## 💻 Analysis Execution: Code Snippets
