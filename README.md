@@ -131,7 +131,8 @@ The table below details the specific tools, their versions, and R packages utili
 
 **(5) Indexing and Alignment**
 - [Genome Index](https://github.com/abdulaziz-khaled/Bulk-RNA-Seq-Analysis-of-Human-Pancreatic/blob/main/Screenshot%20from%202025-10-02%2007-41-36.png)
-- [Alignment Single](
+- [Alignment Single](https://github.com/abdulaziz-khaled/Bulk-RNA-Seq-Analysis-of-Human-Pancreatic/blob/main/Screenshot%20from%202025-10-02%2007-45-07.png)
+- [Alignment Paired](
 
 
 ## 💻 Analysis Execution: Code Snippets
