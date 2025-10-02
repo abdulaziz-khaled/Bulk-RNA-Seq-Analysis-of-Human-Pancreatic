@@ -280,3 +280,49 @@ for f in ~/Bulk_RNAseq_Project/alignment/*.sorted.bam; do
   cat ~/Bulk_RNAseq_Project/alignment/${base}.flagstat.txt
 done
 ```
+
+### 6. 📊 Quantification (Raw Counts)
+
+This step generates raw gene counts from the aligned BAM files using `featureCounts`, combines single-end and paired-end counts into a `count matrix`, and creates a `sample info table`.
+
+```bash
+# Create output directory for counts
+mkdir -p ~/Bulk_RNAseq_Project/counts
+
+# -------------------------------
+# Single-end samples
+featureCounts -T 4 \
+  -a ~/Bulk_RNAseq_Project/genome_index/Homo_sapiens.GRCh38.109.gtf \
+  -o ~/Bulk_RNAseq_Project/counts/counts_single.txt \
+  ~/Bulk_RNAseq_Project/alignment/single/*.sorted.bam
+
+# Paired-end samples
+featureCounts -T 4 -p \
+  -a ~/Bulk_RNAseq_Project/genome_index/Homo_sapiens.GRCh38.109.gtf \
+  -o ~/Bulk_RNAseq_Project/counts/counts_paired.txt \
+  ~/Bulk_RNAseq_Project/alignment/paired/*.sorted.bam
+
+# -------------------------------
+# Merge paired and single counts into a single CSV (count matrix)
+cd ~/Bulk_RNAseq_Project/counts
+Rscript -e "
+paired <- read.delim('counts_paired.txt', header=TRUE, row.names=1, check.names=FALSE, comment.char='#', fill=TRUE)
+single <- read.table('counts_single.txt', header=TRUE, row.names=1, check.names=FALSE, comment.char='', fill=TRUE)
+paired_counts <- paired[,6:ncol(paired)]
+single_counts <- single[,6:ncol(single)]
+all_counts <- merge(paired_counts, single_counts, by=0, all=TRUE)
+rownames(all_counts) <- all_counts\$Row.names
+all_counts <- all_counts[,-1]
+all_counts[is.na(all_counts)] <- 0
+write.csv(all_counts,'counts_matrix.csv')
+"
+
+# -------------------------------
+# Create sample info file
+ls ~/Bulk_RNAseq_Project/alignment/paired/*.sorted.bam ~/Bulk_RNAseq_Project/alignment/single/*.sorted.bam \
+  | xargs -n 1 basename \
+  | sed 's/.sorted.bam//' \
+  | awk 'BEGIN{print "sample,condition"} {print $1",Unknown"}' \
+  > ~/Bulk_RNAseq_Project/counts/sample_info.csv
+  ```
+  
