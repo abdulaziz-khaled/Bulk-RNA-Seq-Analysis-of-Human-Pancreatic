@@ -89,52 +89,12 @@ The table below details the specific tools, their versions, and R packages utili
 | **Data Visualization** | **ggplot2** | **3.5.2** | Creating high-quality custom plots (Volcano, Box plots). |
 | | **Pheatmap** | **1.0.13** | Generating visually appealing **Heatmaps**. |
 
-## 💻 Analysis Execution: Code Snippets
 
-### 1. 📥 Data Retrieval (SRA-toolkit)
-
-This step outlines setting up the project structure and downloading the raw sequencing data using the `SRA-toolkit` commands.
-
-```bash
-# 1. Setup Project Directory
-# Create the main project folder and the raw data folder
-mkdir -p Bulk_RNAseq_Project/raw_data
-cd Bulk_RNAseq_Project/raw_data
-
-# 2. Download SRA Files (prefetch)
-# Download Paired-end (Control) samples
-prefetch SRR12885688 SRR12885679 SRR12885709
-
-# Download Single-end (Stress) samples
-prefetch SRR12885579 SRR12885580 SRR12885581
-
-# 3. Convert SRA to FASTQ (fasterq-dump)
-# Convert SRA files to FASTQ format. 
-# Note: --split-files is mandatory for paired-end reads.
-
-# Convert Control files (Paired-end)
-fasterq-dump --split-files SRR12885688
-fasterq-dump --split-files SRR12885679
-fasterq-dump --split-files SRR12885709
-
-# Convert Stress files (Single-end)
-fasterq-dump SRR12885579
-fasterq-dump SRR12885580
-fasterq-dump SRR12885581
-
-
-
-
-
-
-
-
-
-## 📃 Results
-### **(1) Data Retrieval** 
+# 📃 Results
+**(1) Data Retrieval** 
 [Screenshot](https://github.com/abdulaziz-khaled/Bulk-RNA-Seq-Analysis-of-Human-Pancreatic/blob/1a8afe130a5905bd35699d3f3e24b5832b0a2557/Screenshot%20from%202025-09-24%2019-00-53.png)
 
-### **(2) QC (Before Read Trimming)**
+**(2) QC (Before Read Trimming)**
 1. [SRR12885579_fastqc.html](https://abdulaziz-khaled.github.io/Bulk-RNA-Seq-Analysis-of-Human-Pancreatic/QC/SRR12885579_fastqc.html)
 2. [SRR12885580_fastqc.html](https://abdulaziz-khaled.github.io/Bulk-RNA-Seq-Analysis-of-Human-Pancreatic/QC/SRR12885580_fastqc.html)
 3. [SRR12885581_fastqc.html](https://abdulaziz-khaled.github.io/Bulk-RNA-Seq-Analysis-of-Human-Pancreatic/QC/SRR12885581_fastqc.html)
@@ -146,10 +106,10 @@ fasterq-dump SRR12885581
 9. [SRR12885709_2_fastqc.html](https://abdulaziz-khaled.github.io/Bulk-RNA-Seq-Analysis-of-Human-Pancreatic/QC/SRR12885709_2_fastqc.html)
 10. [multiqc_report.html](https://abdulaziz-khaled.github.io/Bulk-RNA-Seq-Analysis-of-Human-Pancreatic/QC/multiqc_report.html)
 
-### **(3) Read Trimming**
+**(3) Read Trimming**
 [Screenshot](https://github.com/abdulaziz-khaled/Bulk-RNA-Seq-Analysis-of-Human-Pancreatic/blob/41f2f955894c6471fd3aca812b47374e1c08e3da/Screenshot%20from%202025-09-25%2021-03-56.png)
 
-### **(4) QC (After Read Trimming)** 
+**(4) QC (After Read Trimming)** 
 1. [SRR12885579.trim_fastqc.html](https://abdulaziz-khaled.github.io/Bulk-RNA-Seq-Analysis-of-Human-Pancreatic/QC_trimmed/SRR12885579.trim_fastqc.html#M9)
 2. [SRR12885580.trim_fastqc.html](https://abdulaziz-khaled.github.io/Bulk-RNA-Seq-Analysis-of-Human-Pancreatic/QC_trimmed/SRR12885580.trim_fastqc.html)
 3. [SRR12885581.trim_fastqc.html](https://abdulaziz-khaled.github.io/Bulk-RNA-Seq-Analysis-of-Human-Pancreatic/QC_trimmed/SRR12885581.trim_fastqc.html)
