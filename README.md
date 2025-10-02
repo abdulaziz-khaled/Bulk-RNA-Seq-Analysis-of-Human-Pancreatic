@@ -145,7 +145,9 @@ The table below details the specific tools, their versions, and R packages utili
 - [PCA](https://github.com/abdulaziz-khaled/Bulk-RNA-Seq-Analysis-of-Human-Pancreatic/blob/main/results/PCA_plot.pdf)
 - [VSD](https://github.com/abdulaziz-khaled/Bulk-RNA-Seq-Analysis-of-Human-Pancreatic/blob/main/results/vsd_object.rds)
 - [All Results](https://github.com/abdulaziz-khaled/Bulk-RNA-Seq-Analysis-of-Human-Pancreatic/blob/main/results/all_results_df.csv)
-- [Top 50 DEGs](
+- [Top 50 DEGs](https://github.com/abdulaziz-khaled/Bulk-RNA-Seq-Analysis-of-Human-Pancreatic/blob/main/results/top50_DEGs.csv)
+- [Pheatmap]( 
+- [Valcon Plot](
 
 ## 💻 Analysis Execution: Code Snippets
 
