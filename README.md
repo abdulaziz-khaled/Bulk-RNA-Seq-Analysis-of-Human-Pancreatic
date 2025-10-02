@@ -89,6 +89,14 @@ The table below details the specific tools, their versions, and R packages utili
 | **Data Visualization** | **ggplot2** | **3.5.2** | Creating high-quality custom plots (Volcano, Box plots). |
 | | **Pheatmap** | **1.0.13** | Generating visually appealing **Heatmaps**. |
 
+# 💻 Analysis Execution: Code Snippets
+This section provides the key commands and script excerpts used to execute the bioinformatics workflow.
+
+1. Data Retrieval (SRA-toolkit)
+To download the raw FASTQ files using the Accession IDs:
+
+
+
 # 📃 Results
 **(1) Data Retrieval** 
 [Screenshot](https://github.com/abdulaziz-khaled/Bulk-RNA-Seq-Analysis-of-Human-Pancreatic/blob/1a8afe130a5905bd35699d3f3e24b5832b0a2557/Screenshot%20from%202025-09-24%2019-00-53.png)
