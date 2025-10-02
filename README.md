@@ -72,17 +72,22 @@ The final step to link statistical results back to biological meaning:
 
 ## 🛠️ Tools and Software Used
 
-The table below details the specific tools and R packages utilized in each unique stage of the bioinformatics pipeline.
+The table below details the specific tools, their versions, and R packages utilized in each unique stage of the bioinformatics pipeline.
 
-| Workflow Stage | Tools / R Packages | Primary Functions |
-| :--- | :--- | :--- |
-| **Data Retrieval** | **SRA-toolkit** | Downloading raw **FASTQ** files from the SRA database. |
-| **Quality Control & Trimming** | **FastQC**, **MultiQC**, **Trimmomatic** | Assessing initial read quality, summarizing reports, and removing low-quality reads/adapters. |
-| **Alignment (Mapping)** | **HISAT2** | Aligning quality-filtered reads to the human reference genome (**hg38**). |
-| **Quantification** | **FeatureCounts** | Counting the number of reads mapped to each gene to generate **Raw Counts**. |
-| **Differential Expression** | **DESeq2** | Performing normalization and statistical analysis to identify **DEGs**. |
-| **Functional Enrichment** | **clusterProfiler**, **org.Hs.eg.db**, **enrichplot** | Performing and visualizing **GO** and **KEGG** enrichment analysis using human annotation data. |
-| **Data Visualization** | **ggplot2**, **Pheatmap** | Creating high-quality plots (Volcano, Box plots) and visually appealing **Heatmaps**. |
+| Workflow Stage | Tool / R Package | Version | Primary Functions |
+| :--- | :--- | :--- | :--- |
+| **Data Retrieval** | **SRA-toolkit** | **3.2.1** | Downloading raw **FASTQ** files from the SRA database. |
+| **Quality Control & Trimming** | **FastQC** | **v0.12.1** | Assessing initial read quality. |
+| | **MultiQC** | **1.31** | Summarizing reports from multiple tools. |
+| | **Trimmomatic** | **0.40** | Removing low-quality reads and adapters. |
+| **Alignment (Mapping)** | **HISAT2** | **2.2.1** | Aligning quality-filtered reads to the human reference genome (**hg38**). |
+| **Quantification** | **FeatureCounts** | **2.0.1** | Counting the number of reads mapped to each gene to generate **Raw Counts**. |
+| **Differential Expression** | **DESeq2** | **1.42.0** | Performing normalization and statistical analysis to identify **DEGs**. |
+| **Functional Enrichment** | **clusterProfiler** | **4.10.1** | Performing **GO** and **KEGG** enrichment analysis. |
+| | **org.Hs.eg.db** | **3.18.0** | Providing human annotation data for gene ID conversion. |
+| | **enrichplot** | **1.22.0** | Visualizing the results of enrichment analysis. |
+| **Data Visualization** | **ggplot2** | **3.5.2** | Creating high-quality custom plots (Volcano, Box plots). |
+| | **Pheatmap** | **1.0.13** | Generating visually appealing **Heatmaps**. |
 
 # 📃 Results
 **(1) Data Retrieval** 
