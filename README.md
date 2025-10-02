@@ -157,7 +157,7 @@ fasterq-dump SRR12885580
 fasterq-dump SRR12885581
 ```
 
-### 2. 🛡️ Quality Control (QC) - Initial Check
+### 2. 🛡️ Quality Control (QC) - Raw Data
 
 This step performs an initial quality assessment on the raw FASTQ files using `FastQC` and generates a summarized report with `MultiQC`.
 
@@ -178,4 +178,50 @@ cd ../QC
 
 # Aggregate all individual FastQC reports into a single, summarized HTML report
 multiqc . -o.
+```
+### 3. ✂️ Read Trimming
+
+This step trims adapters and low-quality bases from the raw FASTQ files using `Trimmomatic`.
+
+```bash
+# Install Trimmomatic (via Bioconda)
+conda install -c bioconda trimmomatic -y
+
+# Create output directory for trimmed reads
+mkdir -p ~/Bulk_RNAseq_Project/trimmed
+
+# Paired-end sample trimming
+trimmomatic PE -threads 4 \
+~/Bulk_RNAseq_Project/raw_data/SRR12112345_1.fastq \
+~/Bulk_RNAseq_Project/raw_data/SRR12112345_2.fastq \
+~/Bulk_RNAseq_Project/trimmed/SRR12112345_1.trim.fastq \
+~/Bulk_RNAseq_Project/trimmed/SRR12112345_1.unpaired.fastq \
+~/Bulk_RNAseq_Project/trimmed/SRR12112345_2.trim.fastq \
+~/Bulk_RNAseq_Project/trimmed/SRR12112345_2.unpaired.fastq \
+ILLUMINACLIP:$CONDA_PREFIX/share/trimmomatic/adapters/TruSeq3-PE.fa:2:30:10 \
+LEADING:3 TRAILING:3 SLIDINGWINDOW:4:15 MINLEN:36
+
+# Single-end sample trimming
+trimmomatic SE -threads 4 \
+~/Bulk_RNAseq_Project/raw_data/SRR12112349.fastq \
+~/Bulk_RNAseq_Project/trimmed/SRR12112349.trim.fastq \
+ILLUMINACLIP:$CONDA_PREFIX/share/trimmomatic/adapters/TruSeq3-PE.fa:2:30:10 \
+LEADING:3 TRAILING:3 SLIDINGWINDOW:4:15 MINLEN:36
+```
+### 4. 🛡️ Quality Control (QC) - After Trimming
+
+This step performs quality assessment on the trimmed FASTQ files using `FastQC` and aggregates reports with `MultiQC`.
+
+```bash
+# Navigate to the trimmed reads directory
+cd ~/Bulk_RNAseq_Project/trimmed
+
+# Create output directory for QC of trimmed reads
+mkdir -p ../qc_trimmed
+
+# Run FastQC on all trimmed FASTQ files using 4 threads
+fastqc *.trim.fastq -o ../qc_trimmed/ -t 4
+
+# Aggregate all FastQC reports into a single HTML report
+multiqc ../qc_trimmed/ -o ../qc_trimmed/
 ```
