@@ -120,3 +120,39 @@ The table below details the specific tools, their versions, and R packages utili
 8. [SRR12885709_1.trim_fastqc.html](https://abdulaziz-khaled.github.io/Bulk-RNA-Seq-Analysis-of-Human-Pancreatic/QC_trimmed/SRR12885709_1.trim_fastqc.html)
 9. [SRR12885709_2.trim_fastqc.html](https://abdulaziz-khaled.github.io/Bulk-RNA-Seq-Analysis-of-Human-Pancreatic/QC_trimmed/SRR12885709_2.trim_fastqc.html)
 10. [multiqc_report.html](https://abdulaziz-khaled.github.io/Bulk-RNA-Seq-Analysis-of-Human-Pancreatic/QC_trimmed/multiqc_report.html)
+
+
+
+## 💻 Analysis Execution: Code Snippets
+
+### 1. 📥 Data Retrieval (SRA-toolkit)
+
+This step outlines setting up the project structure and downloading the raw sequencing data using the `SRA-toolkit` commands.
+
+```bash
+# 1. Setup Project Directory
+# Create the main project folder and the raw data folder
+mkdir -p Bulk_RNAseq_Project/raw_data
+cd Bulk_RNAseq_Project/raw_data
+
+# 2. Download SRA Files (prefetch)
+# Download Paired-end (Control) samples
+prefetch SRR12885688 SRR12885679 SRR12885709
+
+# Download Single-end (Stress) samples
+prefetch SRR12885579 SRR12885580 SRR12885581
+
+# 3. Convert SRA to FASTQ (fasterq-dump)
+# Convert SRA files to FASTQ format. 
+# Note: --split-files is mandatory for paired-end reads.
+
+# Convert Control files (Paired-end)
+fasterq-dump --split-files SRR12885688
+fasterq-dump --split-files SRR12885679
+fasterq-dump --split-files SRR12885709
+
+# Convert Stress files (Single-end)
+fasterq-dump SRR12885579
+fasterq-dump SRR12885580
+fasterq-dump SRR12885581
+
