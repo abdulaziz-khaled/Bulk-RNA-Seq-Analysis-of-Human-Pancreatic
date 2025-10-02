@@ -97,34 +97,40 @@ This step outlines setting up the project structure and downloading the raw sequ
 
 ```bash
 # 1. Setup Project Directory
-# إنشاء مجلد المشروع ومجلد البيانات الخام
+# Create the main project folder and the raw data folder
 mkdir -p Bulk_RNAseq_Project/raw_data
 cd Bulk_RNAseq_Project/raw_data
 
 # 2. Download SRA Files (prefetch)
-# تحميل ملفات Paired-end (Control)
+# Download Paired-end (Control) samples
 prefetch SRR12885688 SRR12885679 SRR12885709
 
-# تحميل ملفات Single-end (Stress)
+# Download Single-end (Stress) samples
 prefetch SRR12885579 SRR12885580 SRR12885581
 
 # 3. Convert SRA to FASTQ (fasterq-dump)
-# تحويل ملفات SRA إلى تنسيق FASTQ
-# Note: --split-files is used for paired-end reads.
+# Convert SRA files to FASTQ format. 
+# Note: --split-files is mandatory for paired-end reads.
 
-# تحويل ملفات Control (Paired-end)
+# Convert Control files (Paired-end)
 fasterq-dump --split-files SRR12885688
 fasterq-dump --split-files SRR12885679
 fasterq-dump --split-files SRR12885709
 
-# تحويل ملفات Stress (Single-end)
+# Convert Stress files (Single-end)
 fasterq-dump SRR12885579
 fasterq-dump SRR12885580
 fasterq-dump SRR12885581
 
 
 
-# 📃 Results
+
+
+
+
+
+
+## 📃 Results
 **(1) Data Retrieval** 
 [Screenshot](https://github.com/abdulaziz-khaled/Bulk-RNA-Seq-Analysis-of-Human-Pancreatic/blob/1a8afe130a5905bd35699d3f3e24b5832b0a2557/Screenshot%20from%202025-09-24%2019-00-53.png)
 
