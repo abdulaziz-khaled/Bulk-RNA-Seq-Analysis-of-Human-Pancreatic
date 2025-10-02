@@ -142,7 +142,7 @@ The table below details the specific tools, their versions, and R packages utili
 
 **(7) Normalization and Downstream Analysis**
 - [Normalization](https://github.com/abdulaziz-khaled/Bulk-RNA-Seq-Analysis-of-Human-Pancreatic/blob/main/results/normalized_counts.csv)
-- [PCA](
+- [PCA](https://github.com/abdulaziz-khaled/Bulk-RNA-Seq-Analysis-of-Human-Pancreatic/blob/main/results/PCA_plot.pdf)
 - [All Result 
 
 ## 💻 Analysis Execution: Code Snippets
