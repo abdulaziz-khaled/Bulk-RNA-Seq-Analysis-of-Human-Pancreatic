@@ -100,6 +100,7 @@ The table below details the specific tools, their versions, and R packages utili
 
 # 📃 Results
 **(1) Data Retrieval** 
+
 [Screenshot](https://github.com/abdulaziz-khaled/Bulk-RNA-Seq-Analysis-of-Human-Pancreatic/blob/1a8afe130a5905bd35699d3f3e24b5832b0a2557/Screenshot%20from%202025-09-24%2019-00-53.png)
 
 **(2) QC (Before Read Trimming)**
@@ -115,6 +116,7 @@ The table below details the specific tools, their versions, and R packages utili
 10. [multiqc_report.html](https://abdulaziz-khaled.github.io/Bulk-RNA-Seq-Analysis-of-Human-Pancreatic/QC/multiqc_report.html)
 
 **(3) Read Trimming**
+
 [Screenshot](https://github.com/abdulaziz-khaled/Bulk-RNA-Seq-Analysis-of-Human-Pancreatic/blob/41f2f955894c6471fd3aca812b47374e1c08e3da/Screenshot%20from%202025-09-25%2021-03-56.png)
 
 **(4) QC (After Read Trimming)** 
@@ -133,6 +135,10 @@ The table below details the specific tools, their versions, and R packages utili
 - [Genome Index](https://github.com/abdulaziz-khaled/Bulk-RNA-Seq-Analysis-of-Human-Pancreatic/blob/main/Screenshot%20from%202025-10-02%2007-41-36.png)
 - [Alignment Single](https://github.com/abdulaziz-khaled/Bulk-RNA-Seq-Analysis-of-Human-Pancreatic/blob/main/Screenshot%20from%202025-10-02%2007-45-07.png)
 - [Alignment Paired](https://github.com/abdulaziz-khaled/Bulk-RNA-Seq-Analysis-of-Human-Pancreatic/blob/main/Screenshot%20from%202025-10-02%2007-45-19.png)
+
+**(6) Quantification (Gene Counts)**
+
+[Count](https://github.com/abdulaziz-khaled/Bulk-RNA-Seq-Analysis-of-Human-Pancreatic/blob/main/counts)
 
 ## 💻 Analysis Execution: Code Snippets
 
