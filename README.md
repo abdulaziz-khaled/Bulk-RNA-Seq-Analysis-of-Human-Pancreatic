@@ -326,3 +326,116 @@ ls ~/Bulk_RNAseq_Project/alignment/paired/*.sorted.bam ~/Bulk_RNAseq_Project/ali
   > ~/Bulk_RNAseq_Project/counts/sample_info.csv
   ```
   
+### 7. 📈 Normalization, PCA, DEGs, and Functional Enrichment
+
+This step performs bulk RNA-seq downstream analysis using `DESeq2` and generates normalized counts, PCA plots, differential expression results, top 50 DEGs, heatmaps, volcano plots, and GO/KEGG enrichment plots.
+
+```r
+# -----------------------------
+# Load libraries
+library(DESeq2)
+library(ggplot2)
+library(pheatmap)
+library(clusterProfiler)
+library(org.Hs.eg.db)
+library(enrichplot)
+
+# -----------------------------
+# Create output folders
+dir.create("~/Bulk_RNAseq_Project/results", showWarnings = FALSE, recursive = TRUE)
+dir.create("~/Bulk_RNAseq_Project/functional", showWarnings = FALSE, recursive = TRUE)
+
+# -----------------------------
+# Step 1: Read counts and sample info
+counts <- read.csv('~/Bulk_RNAseq_Project/counts/counts_matrix.csv', row.names=1)
+coldata <- read.csv('~/Bulk_RNAseq_Project/counts/sample_info.csv', row.names=1, header=TRUE, sep=',')
+stopifnot(all(rownames(coldata) == colnames(counts)))
+
+# -----------------------------
+# Step 2: DESeq2 object, normalization, VST, PCA
+dds <- DESeqDataSetFromMatrix(countData=counts, colData=coldata, design=~condition)
+dds <- estimateSizeFactors(dds)
+normalized_counts <- counts(dds, normalized=TRUE)
+write.csv(normalized_counts,'~/Bulk_RNAseq_Project/results/normalized_counts.csv')
+
+vsd <- vst(dds, blind=FALSE)
+saveRDS(vsd,'~/Bulk_RNAseq_Project/results/vsd_object.rds')
+
+pca <- plotPCA(vsd, intgroup='condition', returnData=TRUE)
+pca_plot <- ggplot(pca, aes(PC1, PC2, color=condition)) +
+  geom_point(size=4) +
+  ggtitle('PCA Plot (VST Transformed Data)') +
+  theme_minimal() +
+  theme(text=element_text(size=14))
+ggsave('~/Bulk_RNAseq_Project/results/PCA_plot.pdf', plot=pca_plot, width=6, height=5)
+ggsave('~/Bulk_RNAseq_Project/results/PCA_plot.png', plot=pca_plot, width=6, height=5, dpi=300)
+
+# -----------------------------
+# Step 3: DESeq2 differential expression
+dds <- DESeq(dds)
+res <- results(dds)
+res_df <- as.data.frame(res)
+res_df$padj[is.na(res_df$padj)] <- 1
+write.csv(res_df, '~/Bulk_RNAseq_Project/results/all_results_df.csv')
+
+# -----------------------------
+# Step 4: Top50 DEGs and Heatmap
+res_sorted <- res_df[order(res_df$padj), ]
+top50_DEGs_data <- head(res_sorted, 50)
+write.csv(top50_DEGs_data, '~/Bulk_RNAseq_Project/results/top50_DEGs.csv')
+
+top50_genes_names <- rownames(top50_DEGs_data)
+if(all(top50_genes_names %in% rownames(assay(vsd)))) {
+  pheatmap(assay(vsd)[top50_genes_names, ], scale='row', cluster_cols=TRUE,
+           fontsize_row=6, fontsize_col=8,
+           filename='~/Bulk_RNAseq_Project/results/heatmap_top50_DEGs.pdf')
+  pheatmap(assay(vsd)[top50_genes_names, ], scale='row', cluster_cols=TRUE,
+           fontsize_row=6, fontsize_col=8,
+           filename='~/Bulk_RNAseq_Project/results/heatmap_top50_DEGs.png')
+}
+
+# -----------------------------
+# Step 5: Volcano Plot
+res_df$color <- ifelse(res_df$padj<0.05 & res_df$log2FoldChange>1, 'red',
+                       ifelse(res_df$padj<0.05 & res_df$log2FoldChange< -1, 'blue', 'grey'))
+volcano_plot <- ggplot(res_df, aes(x=log2FoldChange, y=-log10(padj), color=color)) +
+  geom_point(size=2) +
+  scale_color_identity() +
+  theme_minimal() +
+  ggtitle('Volcano Plot') +
+  xlab('Log2 Fold Change') +
+  ylab('-log10(Adjusted P-value)') +
+  theme(text=element_text(size=14))
+ggsave('~/Bulk_RNAseq_Project/results/volcano_plot.pdf', plot=volcano_plot, width=6, height=5)
+ggsave('~/Bulk_RNAseq_Project/results/volcano_plot.png', plot=volcano_plot, width=6, height=5, dpi=300)
+
+# -----------------------------
+# Step 6: GO & KEGG enrichment plots
+go_results <- read.csv('~/Bulk_RNAseq_Project/functional/GO_BP_top50_DEGs.csv')
+kegg_results <- read.csv('~/Bulk_RNAseq_Project/functional/KEGG_top50_DEGs.csv')
+genes_clean <- sub('\\..*', '', rownames(top50_DEGs_data))
+gene_list <- bitr(genes_clean, fromType='ENSEMBL', toType='ENTREZID', OrgDb=org.Hs.eg.db)$ENTREZID
+
+if(nrow(go_results) > 0) {
+  go_object <- new('enrichResult', result=go_results, gene=gene_list, organism='Homo sapiens',
+                   keytype='ENTREZID', ontology='BP')
+  go_object <- pairwise_termsim(go_object)
+  pdf('~/Bulk_RNAseq_Project/functional/GO_BP_Dotplot.pdf', width=8, height=6); dotplot(go_object, showCategory=15); dev.off()
+  pdf('~/Bulk_RNAseq_Project/functional/GO_BP_Emapplot.pdf', width=8, height=6); emapplot(go_object, showCategory=15); dev.off()
+  pdf('~/Bulk_RNAseq_Project/functional/GO_BP_Cnetplot.pdf', width=8, height=6); cnetplot(go_object, showCategory=10, circular=TRUE, colorEdge=TRUE); dev.off()
+} else {
+  print('GO WARNING: No significant terms to plot.')
+}
+
+if(nrow(kegg_results) > 0) {
+  kegg_object <- new('enrichResult', result=kegg_results, gene=gene_list, organism='hsa', keytype='ENTREZID')
+  kegg_object <- pairwise_termsim(kegg_object)
+  pdf('~/Bulk_RNAseq_Project/functional/KEGG_Dotplot.pdf', width=8, height=6); dotplot(kegg_object, showCategory=15); dev.off()
+  pdf('~/Bulk_RNAseq_Project/functional/KEGG_Emapplot.pdf', width=8, height=6); emapplot(kegg_object, showCategory=15); dev.off()
+  pdf('~/Bulk_RNAseq_Project/functional/KEGG_Cnetplot.pdf', width=8, height=6); cnetplot(kegg_object, showCategory=10, circular=TRUE, colorEdge=TRUE); dev.off()
+} else {
+  print('KEGG WARNING: No significant pathways to plot.')
+}
+
+print('All results and plots have been generated successfully.')
+```
