@@ -156,3 +156,25 @@ fasterq-dump SRR12885579
 fasterq-dump SRR12885580
 fasterq-dump SRR12885581
 
+### 2. 🛡️ Quality Control (QC) - Initial Check
+
+This step performs an initial quality assessment on the raw FASTQ files using **FastQC** and generates a summarized report with **MultiQC**.
+
+```bash
+# Ensure we are in the raw_data directory where FASTQ files are located
+cd ~/Bulk_RNAseq_Project/raw_data 
+
+# Create the output directory for QC reports
+mkdir -p ../QC
+
+# Run FastQC on all FASTQ files
+# -t 4: Use 4 CPU threads for faster processing
+# -o ../QC: Output reports to the QC directory
+fastqc -t 4 -o ../QC *.fastq
+
+# Change directory to the output folder
+cd ../QC
+
+# Aggregate all individual FastQC reports into a single, summarized HTML report
+multiqc . -o .
+
