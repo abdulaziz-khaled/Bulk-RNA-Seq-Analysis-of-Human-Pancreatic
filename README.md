@@ -89,11 +89,38 @@ The table below details the specific tools, their versions, and R packages utili
 | **Data Visualization** | **ggplot2** | **3.5.2** | Creating high-quality custom plots (Volcano, Box plots). |
 | | **Pheatmap** | **1.0.13** | Generating visually appealing **Heatmaps**. |
 
-# 💻 Analysis Execution: Code Snippets
-This section provides the key commands and script excerpts used to execute the bioinformatics workflow.
+## 💻 Analysis Execution: Code Snippets
 
-1. Data Retrieval (SRA-toolkit)
-To download the raw FASTQ files using the Accession IDs:
+### 1. 📥 Data Retrieval (SRA-toolkit)
+
+This step outlines setting up the project structure and downloading the raw sequencing data using the `SRA-toolkit` commands.
+
+```bash
+# 1. Setup Project Directory
+# إنشاء مجلد المشروع ومجلد البيانات الخام
+mkdir -p Bulk_RNAseq_Project/raw_data
+cd Bulk_RNAseq_Project/raw_data
+
+# 2. Download SRA Files (prefetch)
+# تحميل ملفات Paired-end (Control)
+prefetch SRR12885688 SRR12885679 SRR12885709
+
+# تحميل ملفات Single-end (Stress)
+prefetch SRR12885579 SRR12885580 SRR12885581
+
+# 3. Convert SRA to FASTQ (fasterq-dump)
+# تحويل ملفات SRA إلى تنسيق FASTQ
+# Note: --split-files is used for paired-end reads.
+
+# تحويل ملفات Control (Paired-end)
+fasterq-dump --split-files SRR12885688
+fasterq-dump --split-files SRR12885679
+fasterq-dump --split-files SRR12885709
+
+# تحويل ملفات Stress (Single-end)
+fasterq-dump SRR12885579
+fasterq-dump SRR12885580
+fasterq-dump SRR12885581
 
 
 
