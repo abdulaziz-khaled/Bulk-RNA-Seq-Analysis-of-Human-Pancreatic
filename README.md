@@ -154,7 +154,7 @@ fasterq-dump --split-files SRR12885709
 # Convert Stress files (Single-end)
 fasterq-dump SRR12885579
 fasterq-dump SRR12885580
-fasterq-dump SRR12885581
+fasterq-dump SRR12885581```
 
 ```markdown
 
