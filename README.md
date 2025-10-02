@@ -176,5 +176,5 @@ fastqc -t 4 -o ../QC *.fastq
 cd ../QC
 
 # Aggregate all individual FastQC reports into a single, summarized HTML report
-multiqc . -o.```
+multiqc . -o.
 
