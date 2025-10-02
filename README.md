@@ -154,9 +154,10 @@ fasterq-dump --split-files SRR12885709
 # Convert Stress files (Single-end)
 fasterq-dump SRR12885579
 fasterq-dump SRR12885580
-fasterq-dump SRR12885581```
+fasterq-dump SRR12885581
+```
 
-## 2. 🛡️ Quality Control (QC) - Initial Check
+### 2. 🛡️ Quality Control (QC) - Initial Check
 
 This step performs an initial quality assessment on the raw FASTQ files using **FastQC** and generates a summarized report with **MultiQC**.
 
@@ -176,4 +177,5 @@ fastqc -t 4 -o ../QC *.fastq
 cd ../QC
 
 # Aggregate all individual FastQC reports into a single, summarized HTML report
-multiqc . -o.```
+multiqc . -o.
+```
