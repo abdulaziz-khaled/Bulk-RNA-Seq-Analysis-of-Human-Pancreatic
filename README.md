@@ -147,7 +147,7 @@ The table below details the specific tools, their versions, and R packages utili
 - [All Results](https://github.com/abdulaziz-khaled/Bulk-RNA-Seq-Analysis-of-Human-Pancreatic/blob/main/results/all_results_df.csv)
 - [Top 50 DEGs](https://github.com/abdulaziz-khaled/Bulk-RNA-Seq-Analysis-of-Human-Pancreatic/blob/main/results/top50_DEGs.csv)
 - [Heatmap](https://github.com/abdulaziz-khaled/Bulk-RNA-Seq-Analysis-of-Human-Pancreatic/blob/main/results/heatmap_top50_DEGs.pdf)
-- [Valcon Plot](
+- [Volcano Plot](https://github.com/abdulaziz-khaled/Bulk-RNA-Seq-Analysis-of-Human-Pancreatic/blob/main/results/volcano_plot.pdf)
 
 ## 💻 Analysis Execution: Code Snippets
 
