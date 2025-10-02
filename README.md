@@ -140,6 +140,11 @@ The table below details the specific tools, their versions, and R packages utili
 
 [Count](https://github.com/abdulaziz-khaled/Bulk-RNA-Seq-Analysis-of-Human-Pancreatic/blob/main/counts)
 
+**(7) Normalization and Downstream Analysis**
+- [Normalization](https://github.com/abdulaziz-khaled/Bulk-RNA-Seq-Analysis-of-Human-Pancreatic/blob/main/results/normalized_counts.csv)
+- [PCA](
+- [All Result 
+
 ## 💻 Analysis Execution: Code Snippets
 
 ### 1. 📥 Data Retrieval (SRA-toolkit)
