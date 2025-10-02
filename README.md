@@ -130,7 +130,8 @@ The table below details the specific tools, their versions, and R packages utili
 10. [multiqc_report.html](https://abdulaziz-khaled.github.io/Bulk-RNA-Seq-Analysis-of-Human-Pancreatic/QC_trimmed/multiqc_report.html)
 
 **(5) Indexing and Alignment**
-- [Screenshot](
+- [Genome Index](https://github.com/abdulaziz-khaled/Bulk-RNA-Seq-Analysis-of-Human-Pancreatic/blob/main/Screenshot%20from%202025-10-02%2007-41-36.png)
+- [Alignment Single](
 
 
 ## 💻 Analysis Execution: Code Snippets
