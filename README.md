@@ -144,7 +144,7 @@ The table below details the specific tools, their versions, and R packages utili
 - [Normalization](https://github.com/abdulaziz-khaled/Bulk-RNA-Seq-Analysis-of-Human-Pancreatic/blob/main/results/normalized_counts.csv)
 - [PCA](https://github.com/abdulaziz-khaled/Bulk-RNA-Seq-Analysis-of-Human-Pancreatic/blob/main/results/PCA_plot.pdf)
 - [VSD](https://github.com/abdulaziz-khaled/Bulk-RNA-Seq-Analysis-of-Human-Pancreatic/blob/main/results/vsd_object.rds)
-- [All Results](
+- [All Results](https://github.com/abdulaziz-khaled/Bulk-RNA-Seq-Analysis-of-Human-Pancreatic/blob/main/results/all_results_df.csv)
 - [Top 50 DEGs](
 
 ## 💻 Analysis Execution: Code Snippets
